@@ -1,0 +1,1053 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>FLOLADI - Module 7 | ADI Sample Style 4</title>
+    <meta name="description" content="Advanced Driver Improvement Course - Module 7: Education on Distracted Driving">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/main.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/audio_readalong.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Nature Inspired + Clean Minimal Color Palette */
+            --sage-green: #8FA68E;
+            --deep-forest: #2F5233;
+            --warm-earth: #8B7355;
+            --soft-sand: #F5F1EB;
+            --pure-white: #FFFFFF;
+            --stone-gray: #A8A5A0;
+            --charcoal: #3A3A3A;
+            --mint-fresh: #B8E6B8;
+            --sky-blue: #A8D8EA;
+            --sunset-peach: #FFB3A1;
+            --lavender-calm: #E8D5FF;
+            --morning-light: #FFF8E7;
+            --earth-shadow: #6B5B73;
+            --ocean-depth: #4A6741;
+            --nature-gradient: linear-gradient(135deg, var(--sage-green) 0%, var(--deep-forest) 100%);
+            --calm-gradient: linear-gradient(135deg, var(--soft-sand) 0%, var(--morning-light) 100%);
+            --wellness-gradient: linear-gradient(135deg, var(--mint-fresh) 0%, var(--sage-green) 100%);
+            --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.12);
+            --shadow-large: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.7;
+            color: var(--charcoal);
+            background: var(--soft-sand);
+            font-size: 16px;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background-image: 
+                radial-gradient(circle at 20% 10%, rgba(143, 166, 142, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 90%, rgba(184, 230, 184, 0.08) 0%, transparent 50%);
+        }
+        
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Typography System */
+        .serif-text {
+            font-family: 'Merriweather', Georgia, serif;
+            font-weight: 400;
+        }
+        
+        .light-text {
+            font-weight: 300;
+            color: var(--stone-gray);
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            color: var(--deep-forest);
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+        
+        h1 { font-size: 3rem; font-weight: 700; }
+        h2 { font-size: 2.2rem; font-weight: 600; }
+        h3 { font-size: 1.8rem; font-weight: 600; }
+        h4 { font-size: 1.4rem; font-weight: 500; }
+        h5 { font-size: 1.2rem; font-weight: 500; }
+        
+        .lead {
+            font-weight: 400;
+            font-size: 1.2rem;
+            color: var(--earth-shadow);
+            line-height: 1.8;
+            font-family: 'Merriweather', serif;
+        }
+        
+        /* Layout Structure */
+        .page-wrapper {
+            background: var(--soft-sand);
+            min-height: 100vh;
+            position: relative;
+        }
+        
+        /* Organic Background Elements */
+        .organic-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.3;
+        }
+        
+        .organic-bg::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, var(--mint-fresh) 0%, transparent 70%);
+            border-radius: 50%;
+            top: 10%;
+            right: 10%;
+            animation: breathe 8s ease-in-out infinite;
+        }
+        
+        .organic-bg::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, var(--sky-blue) 0%, transparent 70%);
+            border-radius: 50%;
+            bottom: 20%;
+            left: 15%;
+            animation: breathe 10s ease-in-out infinite reverse;
+        }
+        
+        @keyframes breathe {
+            0%, 100% { transform: scale(1) translateY(0px); opacity: 0.3; }
+            50% { transform: scale(1.1) translateY(-10px); opacity: 0.5; }
+        }
+        
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Organic Card System */
+        .wellness-card {
+            background: var(--pure-white);
+            border-radius: 24px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid rgba(143, 166, 142, 0.2);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .wellness-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(143, 166, 142, 0.05) 0%, transparent 70%);
+            transform: scale(0);
+            transition: transform 0.6s ease;
+        }
+        
+        .wellness-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-large);
+            border-color: var(--sage-green);
+        }
+        
+        .wellness-card:hover::before {
+            transform: scale(1);
+        }
+        
+        .card-nature { border-left: 6px solid var(--sage-green); }
+        .card-earth { border-left: 6px solid var(--warm-earth); }
+        .card-sky { border-left: 6px solid var(--sky-blue); }
+        .card-sunset { border-left: 6px solid var(--sunset-peach); }
+        .card-lavender { border-left: 6px solid var(--lavender-calm); }
+        
+        /* Hero Section */
+        .hero-section {
+            background: var(--nature-gradient);
+            padding: 5rem 0;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+            border-radius: 0 0 40px 40px;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="leaves" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="3" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="2" fill="rgba(255,255,255,0.08)"/><circle cx="50" cy="80" r="4" fill="rgba(255,255,255,0.06)"/></pattern></defs><rect width="100" height="100" fill="url(%23leaves)"/></svg>');
+            opacity: 0.4;
+        }
+        
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background: var(--soft-sand);
+            border-radius: 40px 40px 0 0;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+        
+        .mindful-badge {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: var(--pure-white);
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-soft);
+        }
+        
+        .module-title {
+            font-size: 4rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            color: var(--pure-white) !important;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            font-family: 'Inter', sans-serif;
+            letter-spacing: -0.02em;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 1rem;
+            font-weight: 400;
+            font-family: 'Merriweather', serif;
+        }
+        
+        /* Mixed Layout Card */
+        .mixed-layout-card {
+            background: var(--pure-white);
+            border-radius: 24px;
+            overflow: hidden;
+            margin: 2rem 0;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid rgba(143, 166, 142, 0.2);
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 0;
+            align-items: center;
+        }
+        
+        .mixed-layout-card.reverse {
+            grid-template-columns: 300px 1fr;
+        }
+        
+        .mixed-content {
+            padding: 2.5rem;
+        }
+        
+        .mixed-image {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--calm-gradient);
+        }
+        
+        .mixed-image img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        
+        /* Video Container */
+        .video-container {
+            background: var(--pure-white);
+            border-radius: 24px;
+            overflow: hidden;
+            margin: 2rem 0;
+            box-shadow: var(--shadow-medium);
+            border: 2px solid rgba(143, 166, 142, 0.2);
+        }
+        
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+        
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        /* Statistics Ordered List */
+        .statistics-list {
+            background: var(--calm-gradient);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--sage-green);
+        }
+        
+        .statistics-list ol {
+            margin: 0;
+            padding-left: 2rem;
+            font-family: 'Merriweather', serif;
+            color: var(--earth-shadow);
+        }
+        
+        .statistics-list li {
+            padding: 0.5rem 0;
+            font-weight: 500;
+        }
+        
+        /* Distraction Cards Grid */
+        .distraction-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .distraction-card {
+            background: var(--pure-white);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid rgba(143, 166, 142, 0.2);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: pointer;
+        }
+        
+        .distraction-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-large);
+            border-color: var(--sage-green);
+        }
+        
+        .distraction-card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+        
+        .distraction-card:hover .distraction-card-image {
+            transform: scale(1.05);
+        }
+        
+        .distraction-card-body {
+            padding: 1.5rem;
+        }
+        
+        .distraction-card-title {
+            color: var(--deep-forest);
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .distraction-card-hint {
+            color: var(--stone-gray);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .distraction-card-content {
+            color: var(--earth-shadow);
+            font-family: 'Merriweather', serif;
+            line-height: 1.6;
+        }
+        
+        /* Image Selection Quiz */
+        .image-quiz-container {
+            background: var(--pure-white);
+            border-radius: 24px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid rgba(143, 166, 142, 0.2);
+        }
+        
+        .quiz-images-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .quiz-image-wrapper {
+            position: relative;
+            cursor: pointer;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .quiz-image-wrapper:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-medium);
+        }
+        
+        .quiz-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 16px;
+        }
+        
+        .quiz-options-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .quiz-option {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-family: 'Merriweather', serif;
+            color: var(--earth-shadow);
+        }
+        
+        .quiz-option input[type="radio"] {
+            transform: scale(1.2);
+            accent-color: var(--sage-green);
+        }
+        
+        /* Tips List */
+        .tips-list {
+            background: var(--calm-gradient);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--sky-blue);
+        }
+        
+        .tips-list ul {
+            margin: 0;
+            padding-left: 2rem;
+            font-family: 'Merriweather', serif;
+            color: var(--earth-shadow);
+        }
+        
+        .tips-list li {
+            padding: 0.5rem 0;
+            line-height: 1.6;
+        }
+        
+        /* Costs List */
+        .costs-list {
+            background: var(--lavender-calm);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--sunset-peach);
+        }
+        
+        .costs-list ul {
+            margin: 0;
+            padding-left: 2rem;
+            font-family: 'Merriweather', serif;
+            color: var(--earth-shadow);
+        }
+        
+        .costs-list li {
+            padding: 0.5rem 0;
+            line-height: 1.6;
+        }
+        
+        /* Wellness Alert System */
+        .wellness-alert {
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            border-left: 6px solid;
+            font-weight: 400;
+            position: relative;
+            backdrop-filter: blur(10px);
+            font-family: 'Merriweather', serif;
+        }
+        
+        .alert-success {
+            background: linear-gradient(135deg, rgba(184, 230, 184, 0.2), rgba(143, 166, 142, 0.1));
+            border-left-color: var(--sage-green);
+            color: var(--ocean-depth);
+        }
+        
+        .alert-danger {
+            background: linear-gradient(135deg, rgba(255, 179, 161, 0.2), rgba(139, 115, 85, 0.1));
+            border-left-color: var(--warm-earth);
+            color: var(--warm-earth);
+        }
+        
+        .alert-warning {
+            background: linear-gradient(135deg, rgba(255, 179, 161, 0.2), rgba(139, 115, 85, 0.1));
+            border-left-color: var(--sunset-peach);
+            color: var(--warm-earth);
+        }
+        
+        /* Conclusion Garden */
+        .conclusion-garden {
+            background: var(--nature-gradient);
+            border-radius: 24px;
+            padding: 3rem;
+            margin: 3rem 0;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            box-shadow: var(--shadow-large);
+        }
+        
+        .conclusion-garden::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+            animation: breathe 8s ease-in-out infinite;
+        }
+        
+        .conclusion-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .conclusion-title {
+            color: var(--pure-white) !important;
+            margin-bottom: 1.5rem;
+            font-family: 'Merriweather', serif;
+            font-weight: 400;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-container { padding: 0 15px; }
+            .module-title { font-size: 2.5rem; }
+            .hero-subtitle { font-size: 1.2rem; }
+            .wellness-card { padding: 2rem; }
+            .conclusion-garden { padding: 2rem; }
+            .mixed-layout-card {
+                grid-template-columns: 1fr !important;
+                text-align: center !important;
+            }
+            .mixed-layout-card.reverse {
+                grid-template-columns: 1fr !important;
+            }
+            .mixed-image {
+                order: -1;
+            }
+            .distraction-cards-grid {
+                grid-template-columns: 1fr;
+            }
+            .quiz-images-grid {
+                grid-template-columns: 1fr;
+            }
+            .quiz-options-grid {
+                grid-template-columns: 1fr;
+            }
+            .conclusion-grid {
+                grid-template-columns: 1fr !important;
+                text-align: center !important;
+                gap: 2rem !important;
+            }
+        }
+        
+        .hidden { display: none; }
+        
+        /* Bootstrap Collapse Enhancement */
+        .collapse {
+            margin-top: 1rem;
+        }
+        
+        /* Smooth Animations */
+        .fade-in {
+            animation: fadeIn 0.8s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <div class="organic-bg"></div>
+        
+        <div class="content-wrapper">
+            <div class="main-container">
+                
+                <!-- Hero Section -->
+                <div class="hero-section">
+                    <div class="hero-content">
+                        <div class="mindful-badge">Distracted Driving</div>
+                        <h1 class="module-title">Module 7</h1>
+                        <div class="hero-subtitle">Welcome to Module 7 of DDI's Advanced Driver Improvement (ADI) Course.</div>
+                    </div>
+                </div>
+
+                <!-- Avoiding Distractions -->
+                <div class="wellness-card card-nature">
+                    <h2 style="color: var(--sage-green) !important;" class="serif-text">Avoiding Distractions</h2>
+                    <p>Recent research by the National Highway Traffic Safety Administration (NHTSA) indicates that 90% of crashes in the United States result from driver error. In this module, we will explore how technology can create distractions while driving and discuss effective strategies to ensure your safety on the road.</p>
+                </div>
+
+                <!-- Distracted Driving -->
+                <div class="wellness-card card-earth">
+                    <h3 style="color: var(--warm-earth) !important;" class="serif-text">Distracted Driving</h3>
+                    <p>Distractions stem from our emotional responses and our pursuit of fulfilling fundamental human needs. Unfortunately, driving while distracted can lead to catastrophic consequences. Now, let's watch a video that illustrates the risks associated with cell phone use while driving.</p>
+                    <p><span data-dur="2.05" data-begin="44.3" tabindex="0" data-index="7">Click <strong>Play</strong> to begin the video.</span></p>
+                </div>
+
+                <!-- Video Container 1 -->
+                <div class="video-container">
+                    <div class="video-wrapper">
+                        <iframe src="https://player.vimeo.com/video/426361549" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Distracted Driving Video" loading="lazy"></iframe>
+                    </div>
+                </div>
+
+                <!-- Video Analysis and Statistics -->
+                <div class="wellness-card card-sky">
+                    <h3 style="color: var(--sky-blue) !important;" class="serif-text">Video Analysis and Statistics Summary</h3>
+                    <p>What was your impression of the video? Could the tragedy have been prevented? Disaster strikes even when we least expect it.</p>
+                    <p>And yet, it happens more frequently than we'd like to think. As noted in a study by the NHTSA, the following driver error categories contributed to crashes in the United States:</p>
+                </div>
+
+                <!-- Statistics Card -->
+                <div class="mixed-layout-card">
+                    <div class="mixed-content">
+                        <div class="statistics-list">
+                            <ol>
+                                <li>Driver inattention - 22.7%</li>
+                                <li>Vehicle speed - 18.7%</li>
+                                <li>Alcohol impairment - 18.2%</li>
+                                <li>Perceptual errors (looked, but didn't see) - 15.1%</li>
+                                <li>Decision errors (turned with obstructed view) - 10.1%</li>
+                                <li>Incapacitation (fell asleep) - 6.4%</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="mixed-image">
+                        <img src="Docs/images/m07_01.jpg" alt="Distracted driving statistics">
+                    </div>
+                </div>
+
+                <!-- Second Video Introduction -->
+                <div class="wellness-card card-lavender">
+                    <p><span data-dur="2.05" data-begin="83" tabindex="0" data-index="17">Click <strong>Play</strong> to begin the next video.</span></p>
+                </div>
+
+                <!-- Video Container 2 -->
+                <div class="video-container">
+                    <div class="video-wrapper">
+                        <iframe src="https://player.vimeo.com/video/454150594" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="More on Distractions"></iframe>
+                    </div>
+                </div>
+
+                <!-- Mobile Devices Warning -->
+                <div class="wellness-card card-sunset">
+                    <p class="lead"><strong>Mobile devices can significantly divert your attention while driving. Aside from cell phones, there are various other distractions you should be aware of:</strong></p>
+                </div>
+
+                <!-- Common Distractions -->
+                <div class="mixed-layout-card reverse">
+                    <div class="mixed-image">
+                        <img src="Docs/images/m07_02.jpg" alt="Common driving distractions">
+                    </div>
+                    <div class="mixed-content">
+                        <ul>
+                            <li>Children.</li>
+                            <li>Advertising signs such as billboards and business signs.</li>
+                            <li>Eating or drinking.</li>
+                            <li>Personal grooming.</li>
+                            <li>Listening to music through the radio, streaming services, or CDs.</li>
+                            <li>Construction areas.</li>
+                            <li>Accidents on the road.</li>
+                            <li>Reading materials, and</li>
+                            <li>Using computers.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- How Technology Influences Drivers -->
+                <div class="wellness-card card-nature">
+                    <h3 style="color: var(--sage-green) !important;" class="serif-text">How Technology Influences Drivers</h3>
+                    <p>Mobile phones are a significant source of distraction for drivers today. It's crucial to avoid using your phone while driving to ensure safety. As with any technological advancement, cell phones offer both advantages and potential hazards. Recent studies have explored their risks, likening them to the impairments caused by alcohol.</p>
+                    <p>Studies indicate that using a cell phone while driving increases the likelihood of an accident by approximately four times. The issue isn't merely the manual dexterity required to operate a phone; it primarily stems from the driver's lack of concentration on the road. Let's watch a video to delve deeper into this topic.</p>
+                    <p><span data-dur="2.1" data-begin="144.5" tabindex="0" data-index="31">Click <strong>Play</strong> to start the video.</span></p>
+                </div>
+
+                <!-- Video Container 3 -->
+                <div class="video-container">
+                    <div class="video-wrapper">
+                        <iframe src="https://player.vimeo.com/video/426379082" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Cell Phone Distractions"></iframe>
+                    </div>
+                </div>
+
+                <!-- Video Reflection -->
+                <div class="wellness-card card-earth">
+                    <p>Would the accident in the video have been prevented if the driver wasn't texting and driving?</p>
+                </div>
+
+                <!-- Other Sources of Distractions -->
+                <div class="wellness-card card-sky">
+                    <h4 style="color: var(--sky-blue) !important;" class="serif-text">Other Sources of Distractions on the Road</h4>
+                    <p>Engaging in phone conversations while driving reduces brain activity related to driving by over 37%. Additionally, as demonstrated in the video, sending or reading a text message diverts your attention from the road for 4 to 5 seconds. Always ensure that you complete any calls or texts before getting behind the wheel.</p>
+                </div>
+
+                <!-- Distraction Types Grid -->
+                <div class="distraction-cards-grid">
+                    <div class="distraction-card" data-bs-toggle="collapse" data-bs-target="#distractions-chatting-content">
+                        <img id="distractions-chatting" src="Docs/images/m07_03.jpg" class="distraction-card-image resume-readalong" data-goto-time="166.85" alt="Talking with friends">
+                        <div class="distraction-card-body">
+                            <h5 class="distraction-card-title">Talking with friends:</h5>
+                            <p class="distraction-card-hint"><small>Click on image to learn more...</small></p>
+                            <div id="distractions-chatting-content" class="collapse distraction-card-content">
+                                <p>When driving, it's perfectly acceptable to ask your friends to be quiet.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="distraction-card" data-bs-toggle="collapse" data-bs-target="#distractions-cell-content">
+                        <img id="distractions-cell" src="Docs/images/m07_04.jpg" class="distraction-card-image resume-readalong" data-goto-time="173.2" alt="Using cell phone">
+                        <div class="distraction-card-body">
+                            <h5 class="distraction-card-title">Using Your Cell Phone:</h5>
+                            <p class="distraction-card-hint"><small>Click on image to learn more...</small></p>
+                            <div id="distractions-cell-content" class="collapse distraction-card-content">
+                                <p>It's best to save phone calls for later, ideally when you are parked or outside the vehicle.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="distraction-card" data-bs-toggle="collapse" data-bs-target="#distractions-texting-content">
+                        <img id="distractions-texting" src="Docs/images/m07_05.jpg" class="distraction-card-image resume-readalong" data-goto-time="180.65" alt="Texting while driving">
+                        <div class="distraction-card-body">
+                            <h5 class="distraction-card-title">Texting While Driving:</h5>
+                            <p class="distraction-card-hint"><small>Click on image to learn more...</small></p>
+                            <div id="distractions-texting-content" class="collapse distraction-card-content">
+                                <p>Do not text while you are driving.</p>
+                                <p>Always keep both hands on the wheel and wait until you are parked to write a text message.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="distraction-card" data-bs-toggle="collapse" data-bs-target="#distractions-dj-content">
+                        <img id="distractions-dj" src="Docs/images/m07_06.jpg" class="distraction-card-image resume-readalong" data-goto-time="189.5" alt="Adjusting music">
+                        <div class="distraction-card-body">
+                            <h5 class="distraction-card-title">Adjusting Music Settings:</h5>
+                            <p class="distraction-card-hint"><small>Click on image to learn more...</small></p>
+                            <div id="distractions-dj-content" class="collapse distraction-card-content">
+                                <p>Accidents can occur in the blink of an eye.</p>
+                                <p>Suggestion: Save your favorite radio stations or create a personalized playlist on your iPhone beforehand.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="distraction-card" data-bs-toggle="collapse" data-bs-target="#distractions-to-go-content">
+                        <img id="distractions-to-go" src="Docs/images/m07_07.jpg" class="distraction-card-image resume-readalong" data-goto-time="199.1" alt="Eating while driving">
+                        <div class="distraction-card-body">
+                            <h5 class="distraction-card-title">Eating:</h5>
+                            <p class="distraction-card-hint"><small>Click on image to learn more...</small></p>
+                            <div id="distractions-to-go-content" class="collapse distraction-card-content">
+                                <p>Instead of balancing your drink with your fries and burger, wait until you're parked to enjoy your meal.</p>
+                                <p>Key point: Focusing on your food rather than the road can significantly reduce your attention to driving.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="distraction-card" data-bs-toggle="collapse" data-bs-target="#distractions-fidgeting-content">
+                        <img id="distractions-fidgeting" src="Docs/images/m07_08.jpg" class="distraction-card-image resume-readalong" data-goto-time="213.15" alt="Adjusting controls">
+                        <div class="distraction-card-body">
+                            <h5 class="distraction-card-title">Tweaking the controls:</h5>
+                            <p class="distraction-card-hint"><small>Click on image to learn more...</small></p>
+                            <div id="distractions-fidgeting-content" class="collapse distraction-card-content">
+                                <p>Spending too much time adjusting the controls can lead to dangerous situations.</p>
+                                <p>Advice: Set up controls such as the air conditioning, heat, and radio volume before driving to avoid distractions.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="distraction-card" data-bs-toggle="collapse" data-bs-target="#distractions-preening-content">
+                        <img id="distractions-preening" src="Docs/images/m07_09.jpg" class="distraction-card-image resume-readalong" data-goto-time="229.85" alt="Grooming">
+                        <div class="distraction-card-body">
+                            <h5 class="distraction-card-title">Grooming:</h5>
+                            <p class="distraction-card-hint"><small>Click on image to learn more...</small></p>
+                            <div id="distractions-preening-content" class="collapse distraction-card-content">
+                                <p>Engaging in grooming while driving can lead to expensive lessons on distraction.</p>
+                                <p>Consider this: Why not wait until you arrive to freshen up?</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="distraction-card" data-bs-toggle="collapse" data-bs-target="#distractions-reading-content">
+                        <img id="distractions-reading" src="Docs/images/m07_10.jpg" class="distraction-card-image resume-readalong" data-goto-time="242.2" alt="Using GPS or maps">
+                        <div class="distraction-card-body">
+                            <h5 class="distraction-card-title">GPS or Maps:</h5>
+                            <p class="distraction-card-hint"><small>Click on image to learn more...</small></p>
+                            <div id="distractions-reading-content" class="collapse distraction-card-content">
+                                <p><span data-dur="3.85" data-begin="243.65" tabindex="0" data-index="54">Avoid reading maps or directions with one hand on the wheel while driving.</span></p>
+                                <p><span data-dur="3.75" data-begin="247.5" tabindex="0" data-index="55">Tip 1: Plan your route <strong>BEFORE</strong> you get in the car.</span></p>
+                                <p>Tip 2: Utilize Google Maps for turn-by-turn navigation to your destination.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phone Call Tips -->
+                <div class="wellness-card card-lavender">
+                    <p>The safest option is to avoid using a cell phone while driving. Let's share some valuable tips on managing phone calls while on the road:</p>
+                </div>
+
+                <div class="mixed-layout-card">
+                    <div class="mixed-content">
+                        <div class="tips-list">
+                            <ul>
+                                <li>Allow voicemail to handle your calls, and return them at a later time.</li>
+                                <li>Pull off the road to a safe area and turn off your engine, or ask a passenger to make or take a call.</li>
+                                <li>Use a hands-free system and voice-activated dialing while driving where allowed by law.</li>
+                                <li>Do not engage in stressful or emotional conversations while driving.</li>
+                                <li>Never take notes or look up numbers while driving.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mixed-image">
+                        <img src="Docs/images/m07_11.jpg" alt="Tips for managing phone calls">
+                    </div>
+                </div>
+
+                <!-- Fourth Video -->
+                <div class="wellness-card card-sunset">
+                    <p><span data-dur="1.95" data-begin="287.85" tabindex="0" data-index="63">Press <strong>Play</strong> to start the video.</span></p>
+                </div>
+
+                <div class="video-container">
+                    <div class="video-wrapper">
+                        <iframe src="https://player.vimeo.com/video/454155042" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Managing Distractions"></iframe>
+                    </div>
+                </div>
+
+                <!-- Video Reflection -->
+                <div class="wellness-card card-nature">
+                    <p>As seen in the video, distractions are an obstacle to safe driving. In your driving experience, what distracts you the most?</p>
+                </div>
+
+                <!-- Image Quiz -->
+                <div class="image-quiz-container">
+                    <p class="lead"><strong>Identify the distraction: Click on the image that illustrates a driving distraction.</strong></p>
+                    
+                    <div class="quiz-images-grid">
+                        <div class="quiz-image-wrapper">
+                            <img src="Docs/images/m07_12.jpg" alt="Distraction example 1" class="quiz-image">
+                        </div>
+                        <div class="quiz-image-wrapper">
+                            <img src="Docs/images/m07_13.jpg" alt="Distraction example 2" class="quiz-image">
+                        </div>
+                        <div class="quiz-image-wrapper">
+                            <img src="Docs/images/m07_14.jpg" alt="Distraction example 3" class="quiz-image">
+                        </div>
+                    </div>
+                    
+                    <div class="quiz-options-grid">
+                        <div class="quiz-option">
+                            <input type="radio" name="q1" id="option1">
+                            <label for="option1">Option 1</label>
+                        </div>
+                        <div class="quiz-option">
+                            <input type="radio" name="q1" id="option2">
+                            <label for="option2">Option 2</label>
+                        </div>
+                        <div class="quiz-option">
+                            <input type="radio" name="q1" id="option3">
+                            <label for="option3">Option 3</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Traffic Infractions Cost Money -->
+                <div class="wellness-card card-earth">
+                    <h2 style="color: var(--warm-earth) !important;" class="serif-text">Traffic Infractions Cost Money</h2>
+                    <p>Take a moment to consider the total amount of money you have invested since obtaining your driver's license to maintain your legal driving privilege. How much have you spent on:</p>
+                </div>
+
+                <!-- Costs List -->
+                <div class="mixed-layout-card reverse">
+                    <div class="mixed-image">
+                        <img src="Docs/images/m07_15.jpg" alt="Costs associated with traffic violations">
+                    </div>
+                    <div class="mixed-content">
+                        <div class="costs-list">
+                            <ul>
+                                <li>Traffic fines.</li>
+                                <li>Legal fees.</li>
+                                <li>Increased insurance premiums.</li>
+                                <li>Cost of driving courses.</li>
+                                <li>Out-of-pocket costs for damage not covered by insurance.</li>
+                                <li>Lost earnings due to license suspension or revocation.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cost Reflection Alert -->
+                <div class="wellness-alert alert-warning">
+                    ...as well as any other costs you can think of related to maintaining your driver's license?
+                </div>
+
+                <!-- Final Video -->
+                <div class="wellness-card card-sky">
+                    <p><span data-dur="1.95" data-begin="287.85" tabindex="0" data-index="63">Press <strong>Play</strong> to start the video.</span></p>
+                </div>
+
+                <div class="video-container">
+                    <div class="video-wrapper">
+                        <iframe src="https://player.vimeo.com/video/454156534" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Costs of Distraction"></iframe>
+                    </div>
+                </div>
+
+                <!-- Lesson Takeaways -->
+                <div class="conclusion-garden">
+                    <div class="conclusion-content">
+                        <h2 class="conclusion-title">Lesson Takeaways</h2>
+                        
+                        <div style="display: grid; grid-template-columns: 300px 1fr; gap: 3rem; align-items: center; text-align: left;" class="conclusion-grid">
+                            <div style="text-align: center;">
+                                <img src="Docs/images/m01_04.jpg" alt="Summary image" style="width: 100%; border-radius: 16px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); border: 2px solid rgba(255, 255, 255, 0.2);">
+                            </div>
+                            
+                            <div>
+                                <p class="lead" style="color: rgba(255, 255, 255, 0.95); margin-bottom: 1.5rem; font-family: 'Merriweather', serif;">
+                                    You now possess a robust comprehension of the risks associated with distracted driving and the steps you can take to enhance your safety on the road. Even though it may seem superficial at first, distractions are a reason why collisions continue to be a risk on the road. To be safe, always stay focused on the task of driving.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Final Reflection -->
+                <div class="mixed-layout-card reverse">
+                    <div class="mixed-image">
+                        <img src="Docs/images/m01_04.jpg" alt="Reflection on technology and driving">
+                    </div>
+                    <div class="mixed-content">
+                        <p class="lead">Take a moment to consider the insights you've gained today and reflect on these questions:</p>
+                        <ul>
+                            <li>Where do you keep your technology while driving?</li>
+                            <li>Is your computer currently powered on or off?</li>
+                            <li>Have you set your cell phone to silent or vibrate mode?</li>
+                        </ul>
+                        <p>Think about one change you could implement today to mitigate technology distractions while driving.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+
+    <script>
+        window.jQuery || document.write('<script src="js/jquery-3.6.0.min.js"><\/script>')
+    </script>
+
+    <script>
+        $(document).ready(function(){
+            // Handle quiz question feedback
+            $("input[name='q1']").on('change', function() {
+                if($(this).attr('id') === 'option2') { // Assuming option2 is the correct answer
+                    alert('Correct! Using a phone while driving is a significant distraction.');
+                } else {
+                    alert('Incorrect. The correct answer was Option 2.');
+                }
+                // Disable all options after a choice has been made
+                $("input[name='q1']").attr('disabled', 'disabled');
+            });
+
+            // Functionality for expandable content
+            $('.resume-readalong').click(function(e) {
+                e.preventDefault();
+                var target = $(this).data('bs-target');
+                $(target).collapse('toggle');
+            });
+            
+            // Responsive grid adjustment
+            function adjustLayout() {
+                const conclusionGrid = $('.conclusion-grid');
+                if (window.innerWidth <= 768) {
+                    conclusionGrid.css({
+                        'grid-template-columns': '1fr',
+                        'text-align': 'center',
+                        'gap': '2rem'
+                    });
+                } else {
+                    conclusionGrid.css({
+                        'grid-template-columns': '300px 1fr',
+                        'text-align': 'left',
+                        'gap': '3rem'
+                    });
+                }
+            }
+            
+            adjustLayout();
+            $(window).resize(adjustLayout);
+            
+            // Add gentle entrance animations
+            $('.wellness-card').each(function(index) {
+                $(this).delay(index * 200).queue(function() {
+                    $(this).addClass('fade-in').dequeue();
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arizona Road Safety Experts - Major Criminal Violations</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --red-primary: #DC2626;
+            --red-hover: #EF4444;
+            --gray-light: #F3F4F6;
+            --gray-dark: #4B5563;
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/api/placeholder/1200/400');
+            background-size: cover;
+            background-position: center;
+            min-height: 400px;
+            transition: background 0.3s ease;
+        }
+
+        .content-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .content-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+        }
+
+        .tab-button {
+            background: var(--gray-light);
+            color: var(--gray-dark);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px 8px 0 0;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .tab-button.active {
+            background: var(--red-primary);
+            color: white;
+        }
+
+        .tab-button:hover:not(.active) {
+            background: #E5E7EB;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .alert-box {
+            border-left: 6px solid var(--red-primary);
+            background: #FEE2E2;
+            border-radius: 8px;
+            transition: opacity 0.3s ease;
+        }
+
+        .alert-box:hover {
+            opacity: 0.9;
+        }
+
+        .stat-card {
+            background: var(--gray-light);
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: scale(1.05);
+        }
+
+        .btn-primary {
+            background: var(--red-primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            border: none;
+            transition: background 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .btn-primary:hover {
+            background: var(--red-hover);
+            transform: translateY(-2px);
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: var(--gray-light);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--red-primary);
+            transition: width 0.5s ease;
+        }
+
+        .quiz-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+        }
+
+        .quiz-option {
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            border: 1px solid #D1D5DB;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .quiz-option:hover {
+            background-color: #F9FAFB;
+        }
+
+        .quiz-option.correct {
+            background-color: #D1FAE5;
+            border-color: #10B981;
+        }
+
+        .quiz-option.incorrect {
+            background-color: #FEE2E2;
+            border-color: #EF4444;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans text-gray-800">
+
+    <!-- Hero Section -->
+    <div class="hero-section text-white flex items-center justify-center py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Arizona Road Safety Experts</h1>
+            <p class="text-xl mb-6 max-w-3xl mx-auto">
+                <i class="fas fa-gavel mr-2"></i>Major Criminal Violations
+            </p>
+            <p class="text-lg leading-relaxed max-w-4xl mx-auto">
+                These violations share a common thread: they’re major criminal traffic offenses with escalating consequences based on harm caused. From racing to hit-and-runs, Arizona’s roads demand caution.
+            </p>
+        </div>
+    </div>
+
+    <!-- Main Content Container -->
+    <div class="container mx-auto px-4 py-12">
+    
+        <!-- Tabbed Navigation for Violations -->
+        <div class="mb-8">
+            <div class="flex flex-wrap space-x-2 mb-4">
+                <button class="tab-button active" onclick="openTab('racing')">Racing on Highways</button>
+                <button class="tab-button" onclick="openTab('hit-run')">Leaving the Scene</button>
+                <button class="tab-button" onclick="openTab('stop-death')">Failure to Stop (Death)</button>
+                <button class="tab-button" onclick="openTab('stop-injury')">Failure to Stop (Injury)</button>
+                <button class="tab-button" onclick="openTab('suspended')">Suspended License</button>
+            </div>
+            <div id="racing" class="tab-content active content-card p-6">
+                <h2 class="text-2xl font-bold text-red-600 mb-4">
+                    <i class="fas fa-flag-checkered mr-2"></i>Racing on Highways
+                </h2>
+                <p class="mb-4">
+                    Under ARS § 28-708, racing on highways involves "driving a vehicle in a race, speed competition, contest, or exhibition of speed" on a public road. This includes drag racing, speed challenges, or even informal bets between drivers to outpace each other.
+                </p>
+                <div class="alert-box p-4 mb-4">
+                    <h4 class="font-bold text-red-800 mb-2">Penalties:</h4>
+                    <p class="text-red-800 mb-2">Classified as a Class 1 misdemeanor:</p>
+                    <ul class="list-disc pl-5 text-red-800">
+                        <li>Up to 6 months in jail.</li>
+                        <li>A fine of up to $2,500 (plus surcharges, often doubling the total cost).</li>
+                        <li>License suspension for up to 12 months.</li>
+                        <li>8 points on your driving record.</li>
+                        <li>If injury or death results, charges can escalate to felonies (e.g., manslaughter or negligent homicide under ARS § 13-1102/1103).</li>
+                    </ul>
+                </div>
+                <p class="mb-4">
+                    Arizona’s wide-open highways—like I-10 or SR 87—make racing tempting, especially for younger drivers or car enthusiasts. A single conviction can tank your insurance rates and leave a criminal record, while repeat offenders risk felony charges.
+                </p>
+                <div class="bg-gray-200 p-4 rounded-lg text-center text-gray-500 mb-6">
+                    <img src="Docs/Images/14.jpg" width="500" alt="Racing on Highway Example" class="w-full rounded-lg shadow-md">
+                </div>
+            </div>
+            <div id="hit-run" class="tab-content content-card p-6">
+                <h2 class="text-2xl font-bold text-red-600 mb-4">
+                    <i class="fas fa-car-crash mr-2"></i>Leaving the Scene of a Crash
+                </h2>
+                <p class="mb-4">
+                    ARS § 28-661 (injury/death) and § 28-662 (property damage only) cover "hit-and-run" offenses. Drivers must stop at the scene of any crash they’re involved in, provide aid if needed, and exchange information. Fleeing is illegal, even if you’re not at fault.
+                </p>
+                <div class="alert-box p-4 mb-4">
+                    <h4 class="font-bold text-red-800 mb-2">Penalties:</h4>
+                    <p class="mb-2 text-red-800"><strong>Crash Involving Injury or Death (ARS § 28-661):</strong></p>
+                    <ul class="list-disc pl-5 text-red-800 mb-2">
+                        <li>Class 2 or 3 felony if death occurs:</li>
+                        <li class="ml-5">2.5 to 7 years in prison (Class 3) or 3.5 to 12 years (Class 2) for a first offense.</li>
+                        <li class="ml-5">Fines up to $150,000.</li>
+                        <li class="ml-5">License revocation for 5 years or more.</li>
+                        <li>Class 5 felony if a serious injury occurs:</li>
+                        <li class="ml-5">1 to 3.75 years in prison.</li>
+                        <li class="ml-5">Fines up to $150,000.</li>
+                        <li class="ml-5">License revocation.</li>
+                    </ul>
+                    <p class="mb-2 text-red-800"><strong>Property Damage Only (ARS § 28-662):</strong></p>
+                    <ul class="list-disc pl-5 text-red-800">
+                        <li>Class 2 misdemeanor</li>
+                        <li>Up to 4 months in jail.</li>
+                        <li>Fines up to $750.</li>
+                        <li>License suspension is possible.</li>
+                    </ul>
+                </div>
+                <p class="mb-4">
+                    Hit-and-run cases spike in urban areas like Phoenix, where drivers panic after minor fender-benders or on rural roads after severe collisions. A felony conviction here is life-altering, affecting employment and civil rights (e.g., voting).
+                </p>
+                <div class="bg-gray-200 p-4 rounded-lg text-center text-gray-500 mb-6">
+                    <img src="Docs/Images/15.jpg" width="500" alt="Hit-and-Run Example" class="w-full rounded-lg shadow-md">
+                </div>
+            </div>
+            <div id="stop-death" class="tab-content content-card p-6">
+                <h2 class="text-2xl font-bold text-red-600 mb-4">
+                    <i class="fas fa-traffic-light mr-2"></i>Failure to Stop for a Traffic Signal, Stop Sign, or Yield Causing Death
+                </h2>
+                <p class="mb-4">
+                    Under ARS § 28-672, failing to stop at a traffic signal, stop sign, or yield the right-of-way becomes a criminal offense if it directly causes a crash resulting in death. This applies to red lights, stop signs, or yielding to pedestrians/vehicles.
+                </p>
+                <div class="alert-box p-4 mb-4">
+                    <h4 class="font-bold text-red-800 mb-2">Penalties:</h4>
+                    <p class="mb-2 text-red-800">Class 1 misdemeanor</p>
+                    <ul class="list-disc pl-5 text-red-800 mb-2">
+                        <li>Up to 6 months in jail.</li>
+                        <li>Fines up to $2,500.</li>
+                        <li>License suspension for up to 12 months.</li>
+                        <li>6 points on your driving record.</li>
+                    </ul>
+                    <p class="text-red-800">If prosecuted under felony statutes (e.g., manslaughter, ARS § 13-1103), penalties escalate:</p>
+                    <ul class="list-disc pl-5 text-red-800">
+                        <li>2.5 to 7 years in prison (Class 3 felony).</li>
+                        <li>Fines up to $150,000.</li>
+                        <li>Permanent license revocation.</li>
+                    </ul>
+                </div>
+                <p class="mb-4">
+                    This violation often ties to intersection collisions—common in Tucson or Mesa—where running a red light kills a pedestrian or another driver. Courts weigh causation heavily; if your failure to stop directly led to the death, felony charges are likely. Safety advocates push for stricter enforcement, citing Arizona’s high pedestrian fatality rates.
+                </p>
+            </div>
+            <div id="stop-injury" class="tab-content content-card p-6">
+                <h2 class="text-2xl font-bold text-red-600 mb-4">
+                    <i class="fas fa-traffic-light mr-2"></i>Failure to Stop Causing Serious Physical Injury
+                </h2>
+                <p class="mb-4">
+                    Injuries from these violations often involve cyclists or pedestrians in urban zones. It’s less severe than causing death but still leaves a criminal record, impacting insurance and employment. DPS occasionally highlights enforcement campaigns targeting stop-sign runners in residential areas.
+                </p>
+                <div class="alert-box p-4 mb-4">
+                    <h4 class="font-bold text-red-800 mb-2">Penalties:</h4>
+                    <p class="text-red-800">Class 2 misdemeanor:</p>
+                    <ul class="list-disc pl-5 text-red-800">
+                        <li>Up to 4 months in jail.</li>
+                        <li>Fines up to $750.</li>
+                        <li>License suspension for up to 6 months.</li>
+                        <li>6 points on your driving record.</li>
+                    </ul>
+                </div>
+            </div>
+            <div id="suspended" class="tab-content content-card p-6">
+                <h2 class="text-2xl font-bold text-red-600 mb-4">
+                    <i class="fas fa-id-card mr-2"></i>Driving on a Suspended or Revoked Driver's License
+                </h2>
+                <p class="mb-4">
+                    ARS § 28-3473 prohibits driving with a license that’s suspended (temporary) or revoked (long-term/permanent). This often follows prior offenses like DUI, reckless driving, or point accumulation.
+                </p>
+                <div class="alert-box p-4 mb-4">
+                    <h4 class="font-bold text-red-800 mb-2">Penalties:</h4>
+                    <p class="text-red-800">Class 1 misdemeanor</p>
+                    <ul class="list-disc pl-5 text-red-800">
+                        <li>Up to 6 months in jail.</li>
+                        <li>Fines up to $2,500.</li>
+                        <li>Extended suspension/revocation period (adds at least 6 months).</li>
+                        <li>Vehicle impoundment possible.</li>
+                        <li>2 points (if a license wasn’t already invalid).</li>
+                    </ul>
+                </div>
+                <p class="mb-4">
+                    This is a common trap for Arizona drivers—many don’t realize their license is suspended (e.g., unpaid fines) until pulled over. Rural drivers, reliant on cars for work, are hit hardest by impoundments or jail time.
+                </p>
+            </div>
+        </div>
+
+        <!-- Implications Section -->
+        <div class="content-card p-6 mb-8">
+            <h2 class="text-2xl font-bold text-red-600 mb-4">
+                <i class="fas fa-car-side mr-2"></i>Implications for Arizona Drivers
+            </h2>
+            <p class="mb-4">
+                These violations share a common thread: they’re major criminal traffic offenses with escalating consequences based on harm caused. Here’s how they affect drivers:
+            </p>
+            <ul class="list-disc pl-5 mb-4">
+                <li><strong>Points System:</strong> Racing (8), failure causing death/injury (6), and driving on a suspended license (2) add points fast, risking suspension even without a direct penalty.</li>
+                <li><strong>Criminal Record:</strong> All are misdemeanors or felonies, staining background checks for years.</li>
+                <li><strong>Financial Hit:</strong> Fines, surcharges, impound fees, and soaring insurance rates pile up—felonies can reach six figures with prison costs.</li>
+                <li><strong>License Loss:</strong> Suspensions (6-12 months) or revocations (5+ years) disrupt life in a car-dependent state like Arizona.</li>
+            </ul>
+            <p class="mb-4">
+                The state’s mix of sprawling highways and dense cities amplifies these risks. Racing thrives on I-17’s open stretches, hit-and-runs spike in Phoenix’s chaos, and stop-sign violations plague suburban intersections. DPS and local police use radar, red-light cameras, and citizen reports (often vented on X) to enforce these laws aggressively.
+            </p>
+            <p class="mb-4">
+                Legislative efforts—like 2024’s push for tougher hit-and-run laws—signal growing concern. Meanwhile, Arizona’s 2023 traffic fatality stats (1,307 deaths, per ADOT) underline why these violations are targeted: speed, recklessness, and fleeing cost lives.
+            </p>
+            <p class="mb-4">
+                For Arizona drivers, these offenses—racing, hit-and-run, failure to stop causing death/injury, and driving on a suspended license—are a legal minefield. Penalties range from months in jail to decades in prison, depending on outcomes. Prevention’s key: obey signals, stay off roads if unlicensed, and resist the urge to race. If caught, legal counsel can downgrade charges (e.g., felony to misdemeanor), but the stakes are high. Drive cautiously—Arizona’s roads don’t forgive easily!
+            </p>
+        </div>
+
+        <!-- Statistics Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div class="stat-card p-6 text-center">
+                <h3 class="text-xl font-bold text-red-600 mb-2">
+                    <i class="fas fa-skull-crossbones mr-2"></i>2023 Fatalities
+                </h3>
+                <p class="text-gray-700">1,307 traffic deaths (ADOT).</p>
+                <div class="progress-bar mt-4">
+                    <div class="progress-fill" style="width: 100%;"></div>
+                </div>
+            </div>
+            <div class="stat-card p-6 text-center">
+                <h3 class="text-xl font-bold text-red-600 mb-2">
+                    <i class="fas fa-list-ol mr-2"></i>Racing Points
+                </h3>
+                <p class="text-gray-700">8 points added for racing.</p>
+                <div class="progress-bar mt-4">
+                    <div class="progress-fill" style="width: 100%;"></div>
+                </div>
+            </div>
+            <div class="stat-card p-6 text-center">
+                <h3 class="text-xl font-bold text-red-600 mb-2">
+                    <i class="fas fa-id-card-alt mr-2"></i>Max Revocation
+                </h3>
+                <p class="text-gray-700">5+ years for hit-and-run with death.</p>
+                <div class="progress-bar mt-4">
+                    <div class="progress-fill" style="width: 100%;"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Knowledge Check Quiz -->
+        <div class="quiz-container mb-8">
+            <h2 class="text-2xl font-bold text-red-600 mb-4">
+                <i class="fas fa-question-circle mr-2"></i>Knowledge Check: Major Violations Quiz
+            </h2>
+            <p class="mb-4">Click an option to test your understanding!</p>
+            <div id="quiz-question-1" class="mb-6">
+                <p class="font-bold mb-2"><i class="fas fa-flag-checkered mr-2"></i>What is the maximum jail time for racing on highways (Class 1 misdemeanor)?</p>
+                <div class="quiz-option" onclick="checkAnswer(this, true)"><i class="fas fa-clock mr-2"></i>Up to 6 months</div>
+                <div class="quiz-option" onclick="checkAnswer(this, false)"><i class="fas fa-clock mr-2"></i>Up to 4 months</div>
+                <div class="quiz-option" onclick="checkAnswer(this, false)"><i class="fas fa-clock mr-2"></i>Up to 30 days</div>
+            </div>
+            <div id="quiz-question-2" class="mb-6">
+                <p class="font-bold mb-2"><i class="fas fa-car-crash mr-2"></i>What is the felony class for leaving the scene with a serious injury?</p>
+                <div class="quiz-option" onclick="checkAnswer(this, false)"><i class="fas fa-gavel mr-2"></i>Class 2</div>
+                <div class="quiz-option" onclick="checkAnswer(this, true)"><i class="fas fa-gavel mr-2"></i>Class 5</div>
+                <div class="quiz-option" onclick="checkAnswer(this, false)"><i class="fas fa-gavel mr-2"></i>Class 3</div>
+            </div>
+            <div id="quiz-question-3" class="mb-6">
+                <p class="font-bold mb-2"><i class="fas fa-traffic-light mr-2"></i>How many points are added for failure to stop causing death?</p>
+                <div class="quiz-option" onclick="checkAnswer(this, false)"><i class="fas fa-list-ol mr-2"></i>2 points</div>
+                <div class="quiz-option" onclick="checkAnswer(this, false)"><i class="fas fa-list-ol mr-2"></i>8 points</div>
+                <div class="quiz-option" onclick="checkAnswer(this, true)"><i class="fas fa-list-ol mr-2"></i>6 points</div>
+            </div>
+            <div id="quiz-result" class="mt-4"></div>
+            <button class="btn-primary mt-4" onclick="resetQuiz()">
+                <i class="fas fa-redo mr-2"></i>Reset Quiz
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript for Interactivity -->
+    <script>
+        // Tab Functionality
+        function openTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('active');
+            });
+            document.getElementById(tabName).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+
+        // Quiz Functionality
+        function checkAnswer(element, isCorrect) {
+            if (isCorrect) {
+                element.classList.add('correct');
+                element.innerHTML += ' <i class="fas fa-check text-green-600"></i> Correct!';
+            } else {
+                element.classList.add('incorrect');
+                element.innerHTML += ' <i class="fas fa-times text-red-600"></i> Incorrect!';
+            }
+            const options = element.parentElement.querySelectorAll('.quiz-option');
+            options.forEach(opt => opt.onclick = null);
+        }
+
+        // Reset Quiz Functionality
+        function resetQuiz() {
+            document.querySelectorAll('.quiz-option').forEach(option => {
+                option.classList.remove('correct', 'incorrect');
+                option.innerHTML = option.innerHTML.replace(/ <i.*<\/i>.*$/, '');
+                option.onclick = function() { 
+                    checkAnswer(this, 
+                        option.innerHTML.includes('Up to 6 months') || 
+                        option.innerHTML.includes('Class 5') || 
+                        option.innerHTML.includes('6 points')
+                    ); 
+                };
+            });
+            document.getElementById('quiz-result').innerHTML = '';
+        }
+    </script>
+</body>
+</html>

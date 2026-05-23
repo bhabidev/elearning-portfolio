@@ -1,0 +1,585 @@
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+/* === TEMPLATE STYLE SYSTEM (UNCHANGED) === */
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:'Lato',sans-serif;
+  background:linear-gradient(135deg,#758E4F 0%,#0A1172 100%);
+  color:#1e293b;
+  line-height:1.7;
+  min-height:100vh;
+  padding:20px
+}
+.container{
+  max-width:900px;
+  margin:0 auto;
+  background:#F2F2F2;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 20px 60px rgba(0,0,0,.3)
+}
+.header{
+  background:#2C4A7C;
+  color:#fff;
+  padding:40px;
+  text-align:center;
+  border-bottom:4px solid #758E4F
+}
+.header h1{
+  font-family:'Open Sans',sans-serif;
+  font-size:2.2rem;
+  font-weight:700
+}
+.header .subtitle{
+  font-size:1.1rem;
+  color:#F4E04D;
+  font-weight:600
+}
+.content{padding:40px}
+.module-title{
+  font-family:'Open Sans',sans-serif;
+  font-size:1.8rem;
+  font-weight:700;
+  color:#0A1172;
+  margin-bottom:20px
+}
+.section{
+  background:#fff;
+  padding:30px;
+  border-radius:12px;
+  margin-bottom:25px;
+  box-shadow:0 4px 12px rgba(0,0,0,.08)
+}
+.section h2{
+  font-family:'Open Sans',sans-serif;
+  font-size:1.5rem;
+  font-weight:700;
+  color:#0A1172;
+  margin-bottom:20px
+}
+.section h3{
+  font-family:'Open Sans',sans-serif;
+  font-size:1.2rem;
+  font-weight:700;
+  color:#0A1172;
+  margin-top:25px;
+  margin-bottom:15px
+}
+.section p{
+  color:#64748b;
+  margin-bottom:15px
+}
+.section ul{
+  margin:15px 0 15px 0;
+  padding-left:40px;
+  color:#64748b;
+  list-style-type:disc;
+  list-style-position:outside;
+}
+.section ul li{
+  margin-bottom:10px;
+  padding-left:5px;
+  display:list-item;
+  color:#64748b;
+}
+.section ul li::marker{color:#64748b;}
+.section ol{
+  margin:15px 0 15px 0;
+  padding-left:40px;
+  color:#64748b;
+  list-style-type:decimal;
+  list-style-position:outside;
+}
+.section ol li{
+  margin-bottom:15px;
+  padding-left:5px;
+  display:list-item;
+  color:#64748b;
+}
+.section ol li::marker{color:#64748b;}
+.section li{
+  margin-bottom:10px;
+  padding-left:5px;
+  display:list-item;
+  color:#64748b;
+}
+
+/* Interactive cards */
+.responsibility-card{
+  background:#f8fafc;
+  border:2px solid #e2e8f0;
+  border-radius:10px;
+  padding:20px;
+  margin:15px 0;
+  cursor:pointer
+}
+.responsibility-card.checked{
+  background:#fff9c4;
+  border-color:#758E4F
+}
+.card-checkbox{
+  width:24px;
+  height:24px;
+  border:3px solid #94a3b8;
+  border-radius:6px;
+  float:left;
+  margin-right:15px
+}
+.responsibility-card.checked .card-checkbox{
+  background:#0A1172;
+  border-color:#0A1172
+}
+.card-checkbox::after{
+  content:"✓";
+  color:#fff;
+  font-weight:700;
+  display:none;
+  text-align:center;
+  line-height:18px
+}
+.responsibility-card.checked .card-checkbox::after{display:block}
+.card-content{overflow:hidden}
+
+/* Highlighted box for important legal text */
+.legal-box{
+  background:#fef3c7;
+  border:2px solid #d97706;
+  border-radius:8px;
+  padding:20px;
+  margin:20px 0;
+  font-style:italic;
+  color:#92400e;
+  font-weight:500
+}
+
+/* Scenario boxes */
+.scenario-box{
+  background:#f0fdf4;
+  border-left:4px solid #10b981;
+  padding:20px;
+  margin:20px 0;
+  border-radius:6px
+}
+.scenario-box h4{color:#065f46;font-weight:700;margin-bottom:10px;font-size:1.1rem;}
+.scenario-box p{color:#064e3b;margin-bottom:10px;}
+.scenario-box strong{color:#065f46;}
+
+/* Timeline / accordion step styles */
+.timeline-step{
+  border:2px solid #e2e8f0;
+  border-radius:10px;
+  margin:12px 0;
+  overflow:hidden;
+}
+.timeline-step-header{
+  background:#f8fafc;
+  padding:16px 20px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  font-family:'Open Sans',sans-serif;
+  font-weight:700;
+  color:#0A1172;
+  font-size:1rem;
+  user-select:none;
+}
+.timeline-step-header:hover{background:#e8f0fe;}
+.timeline-step.open .timeline-step-header{background:#2C4A7C;color:#fff;}
+.step-number{
+  background:#0A1172;
+  color:#fff;
+  border-radius:50%;
+  width:30px;
+  height:30px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:.9rem;
+  flex-shrink:0;
+}
+.timeline-step.open .step-number{background:#F4E04D;color:#0A1172;}
+.step-arrow{margin-left:auto;font-size:1.1rem;transition:transform .3s;}
+.timeline-step.open .step-arrow{transform:rotate(180deg);}
+.timeline-step-body{
+  display:none;
+  padding:20px;
+  color:#64748b;
+  border-top:2px solid #e2e8f0;
+}
+.timeline-step.open .timeline-step-body{display:block;}
+.timeline-step-body p{color:#64748b;margin-bottom:12px;}
+.timeline-step-body ul{
+  margin:10px 0;
+  padding-left:30px;
+  color:#64748b;
+  list-style-type:disc;
+}
+.timeline-step-body ul li{margin-bottom:8px;color:#64748b;}
+
+/* Knowledge check styles */
+.knowledge-check{
+  background:#eef2ff;
+  border:2px solid #6366f1;
+  border-radius:10px;
+  padding:24px;
+  margin:20px 0;
+}
+.knowledge-check h4{
+  font-family:'Open Sans',sans-serif;
+  font-weight:700;
+  color:#3730a3;
+  margin-bottom:16px;
+  font-size:1.1rem;
+}
+.kc-options{list-style:none;padding:0;margin:0;}
+.kc-options li{display:block;margin-bottom:10px;}
+.kc-option{
+  background:#fff;
+  border:2px solid #c7d2fe;
+  border-radius:8px;
+  padding:12px 16px;
+  cursor:pointer;
+  width:100%;
+  text-align:left;
+  font-family:'Lato',sans-serif;
+  font-size:1rem;
+  color:#1e293b;
+  transition:background .2s, border-color .2s;
+}
+.kc-option:hover{background:#e0e7ff;border-color:#6366f1;}
+.kc-option.correct{background:#d1fae5;border-color:#10b981;color:#065f46;font-weight:700;}
+.kc-option.incorrect{background:#fee2e2;border-color:#ef4444;color:#991b1b;}
+.kc-feedback{
+  margin-top:14px;
+  padding:12px 16px;
+  border-radius:8px;
+  font-weight:600;
+  display:none;
+}
+.kc-feedback.show{display:block;}
+.kc-feedback.correct{background:#d1fae5;color:#065f46;}
+.kc-feedback.incorrect{background:#fee2e2;color:#991b1b;}
+
+/* Reflect box */
+.reflect-box{
+  background:#f0f9ff;
+  border-left:4px solid #2C4A7C;
+  border-radius:6px;
+  padding:20px;
+  margin:20px 0;
+}
+.reflect-box p{color:#1e3a5f;margin-bottom:10px;}
+.reflect-box ul{list-style:disc;padding-left:24px;color:#1e3a5f;}
+.reflect-box ul li{margin-bottom:8px;color:#1e3a5f;}
+
+/* Utility classes */
+.text-center{text-align:center;}
+.mb-4{margin-bottom:1.5rem;}
+.img-fluid{max-width:100%;height:auto;}
+.rounded{border-radius:0.375rem;}
+.mx-auto{margin-left:auto;margin-right:auto;}
+.d-block{display:block;}
+
+@media(max-width:768px){
+  body{padding:10px}
+  .content{padding:25px 20px}
+  .header{padding:30px 20px}
+  .header h1{font-size:1.8rem}
+  .header .subtitle{font-size:1rem}
+  .module-title{font-size:1.5rem}
+  .section{padding:20px}
+  .section h2{font-size:1.3rem}
+  .section h3{font-size:1.1rem}
+  .section ul{padding-left:30px}
+  .section ol{padding-left:30px}
+}
+</style>
+
+<div class="container">
+  <div class="header">
+    <h1>Programa de Capacitación de 4 Horas para Servidores de Alcohol en Michigan</h1>
+    <div class="subtitle">Tema 8 — Conocimiento de los Horarios Legales de Venta de Alcohol</div>
+  </div>
+
+  <div class="content">
+
+    <h1 class="module-title">Conocimiento de los Horarios Legales de Venta de Alcohol</h1>
+
+    <!-- Introducción del Tema -->
+    <div class="section">
+      <p>Comprender los horarios legales para la venta de alcohol es una responsabilidad esencial para cualquier persona que trabaje en un establecimiento con licencia. La ley de Michigan regula cuándo pueden venderse o servirse bebidas alcohólicas para garantizar la consistencia y reducir los riesgos relacionados con el alcohol durante las horas de la noche. Los servidores, bartenders, gerentes y empleados de tienda deben conocer cuándo se permiten las ventas de alcohol y cuándo debe detenerse el servicio.</p>
+
+      <div class="legal-box">
+        <p>El incumplimiento de estas restricciones de horario puede resultar en ventas prohibidas, sanciones administrativas de la Comisión de Control de Licores de Michigan y posibles acciones disciplinarias contra los empleados o el titular de la licencia.</p>
+      </div>
+    </div>
+
+    <!-- Sección 8.1 -->
+    <div class="section">
+      <h2>8.1 Horarios Legales Estándar de Michigan para la Venta de Alcohol</h2>
+
+      <p>La ley de Michigan establece horarios estándar durante los cuales las bebidas alcohólicas pueden venderse o servirse legalmente. Estos horarios aplican a la mayoría de los establecimientos con licencia a menos que permisos locales especiales autoricen un servicio extendido.</p>
+      <p>Los empleados deben comprender estos horarios estándar y garantizar que las ventas de alcohol se detengan puntualmente cuando se alcance la hora límite legal.</p>
+
+      <p>Haga clic en cada tipo de titular de licencia a continuación para revisar los horarios aplicables:</p>
+
+      <div class="timeline-step" id="hrs-1">
+        <div class="timeline-step-header" onclick="toggleStep('hrs-1')">
+          <div class="step-number">1</div>
+          Titulares de Licencia para Consumo en el Lugar: Horarios Legales de Venta
+          <span class="step-arrow">▼</span>
+        </div>
+        <div class="timeline-step-body">
+          <p>Para los <strong>titulares de licencia para consumo en el lugar</strong>, como bares, restaurantes, clubes y tabernas, el alcohol generalmente puede venderse y servirse a partir de las <strong>7:00 a.m. y hasta las 2:00 a.m.</strong> de la mañana siguiente.</p>
+          <p>Los establecimientos para consumo en el lugar permiten a los clientes consumir bebidas alcohólicas en el lugar donde se vende el alcohol. Debido a que el consumo de alcohol ocurre en el sitio, los miembros del personal deben monitorear de cerca tanto el servicio como el comportamiento de los clientes durante todo el horario de operación.</p>
+          <p>Los empleados deben tener en cuenta que estos horarios aplican a la <strong>venta y servicio</strong> de alcohol. El servicio fuera de los horarios legales puede considerarse una venta prohibida bajo la ley de Michigan.</p>
+        </div>
+      </div>
+
+      <div class="timeline-step" id="hrs-2">
+        <div class="timeline-step-header" onclick="toggleStep('hrs-2')">
+          <div class="step-number">2</div>
+          Titulares de Licencia para Consumo Fuera del Lugar
+          <span class="step-arrow">▼</span>
+        </div>
+        <div class="timeline-step-body">
+          <p>Los <strong>titulares de licencia para consumo fuera del lugar</strong>, incluyendo tiendas de licores al por menor, supermercados y tiendas de conveniencia, generalmente siguen los mismos horarios estándar de venta.</p>
+          <p>Las bebidas alcohólicas vendidas por los titulares de licencia para consumo fuera del lugar están destinadas para su consumo en otro lugar y no en el establecimiento minorista. Aunque el alcohol no se consume en las instalaciones, aplican las mismas restricciones de horario.</p>
+          <p>Los empleados de venta al por menor deben garantizar que las compras de alcohol se completen dentro del período legal de ventas y deben negarse a realizar transacciones que ocurran después de la hora límite legal.</p>
+        </div>
+      </div>
+
+      <h3>La Obligación de la Última Llamada</h3>
+      <p>La hora límite legal para las ventas de alcohol en Michigan es las <strong>2:00 a.m.</strong>. Los establecimientos deben garantizar que todos los pedidos de alcohol sean realizados y servidos antes de esta hora.</p>
+      <p>Haga clic en cada requisito a continuación para reconocerlo:</p>
+
+      <div class="responsibility-card">
+        <div class="card-checkbox"></div>
+        <div class="card-content">Los clientes deben realizar sus pedidos finales antes de las 2:00 a.m.</div>
+      </div>
+
+      <div class="responsibility-card">
+        <div class="card-checkbox"></div>
+        <div class="card-content">Las bebidas deben ser entregadas al cliente antes de la hora límite</div>
+      </div>
+
+      <div class="responsibility-card">
+        <div class="card-checkbox"></div>
+        <div class="card-content">No se puede vender ni servir alcohol adicional después del límite legal</div>
+      </div>
+
+      <div class="reflect-box">
+        <p>Los empleados deben evitar demorar el servicio de maneras que puedan causar que el alcohol sea entregado después de la hora límite legal. Los pedidos pendientes o las bebidas parcialmente preparadas no crean excepciones a la ley.</p>
+        <p>Por esta razón, muchos establecimientos anuncian una <strong>"última llamada"</strong> varios minutos antes de las 2:00 a.m. para garantizar que los pedidos finales puedan completarse a tiempo.</p>
+      </div>
+
+      <h3>Ocupación Después de las 2:00 a.m.</h3>
+      <p>Un establecimiento puede permanecer abierto después de la hora límite de servicio de alcohol, dependiendo de su modelo de negocio y las regulaciones locales. Sin embargo, permanecer abierto no permite continuar el servicio de alcohol.</p>
+      <p>Por ejemplo, un restaurante puede continuar sirviendo comida o permitir a los clientes terminar sus comidas después de las 2:00 a.m., pero las ventas de alcohol deben detenerse a la hora límite legal.</p>
+
+      <div class="legal-box">
+        <p>Los empleados deben comprender claramente la diferencia entre <strong>permanecer abierto</strong> y <strong>continuar el servicio de alcohol</strong>.</p>
+      </div>
+
+      <h3>Obligación de Prevenir el Consumo Después de las 2:00 a.m.</h3>
+      <p>La ley de Michigan también impone responsabilidad a los titulares de licencias para garantizar que el <strong>consumo de alcohol no continúe después de la hora límite legal</strong>.</p>
+      <p>Los servidores y miembros del personal deben monitorear las mesas y retirar las bebidas alcohólicas sin terminar cuando lo requiera la política. Esto garantiza que los clientes no continúen bebiendo alcohol más allá de las horas legales de servicio.</p>
+
+      <div class="reflect-box">
+        <p>El monitoreo adecuado ayuda a los establecimientos a evitar infracciones y demuestra el cumplimiento de las regulaciones de servicio de alcohol de Michigan.</p>
+      </div>
+
+      <!-- Verificación de Conocimiento -->
+      <div class="knowledge-check">
+        <h4>Verificación de Conocimiento: Horarios Legales Estándar</h4>
+        <p style="color:#3730a3;margin-bottom:12px;">En Michigan, ¿cuál es la hora límite legal estándar para las ventas de alcohol en los titulares de licencia para consumo en el lugar y fuera del lugar?</p>
+        <ul class="kc-options">
+          <li><button class="kc-option" onclick="checkAnswer(this, false, 'kc-feedback-1')">12:00 a.m. (medianoche)</button></li>
+          <li><button class="kc-option" onclick="checkAnswer(this, false, 'kc-feedback-1')">1:00 a.m.</button></li>
+          <li><button class="kc-option" onclick="checkAnswer(this, true, 'kc-feedback-1')">2:00 a.m.</button></li>
+          <li><button class="kc-option" onclick="checkAnswer(this, false, 'kc-feedback-1')">3:00 a.m.</button></li>
+        </ul>
+        <div class="kc-feedback" id="kc-feedback-1"></div>
+      </div>
+
+    </div>
+
+    <!-- Sección 8.2 -->
+    <div class="section">
+      <h2>8.2 Horarios Extendidos y Opciones Locales</h2>
+
+      <p>Si bien Michigan establece horarios estándar de venta de alcohol en todo el estado, los gobiernos locales pueden adoptar ordenanzas que permitan horarios extendidos en ciertas jurisdicciones. Estas opciones locales brindan flexibilidad a las comunidades que desean permitir el servicio de alcohol más allá de la hora límite estándar de las 2:00 a.m.</p>
+      <p>Los empleados deben comprender que los horarios extendidos no están disponibles automáticamente en todos los lugares y dependen de la aprobación local.</p>
+
+      <h3>Autoridad Local para Extender los Horarios</h3>
+      <p>La ley de Michigan permite a las <strong>unidades locales de gobierno</strong>, como ciudades o municipios, autorizar horarios extendidos de venta de alcohol mediante ordenanzas locales.</p>
+
+      <div class="legal-box">
+        <p>En algunos municipios, los establecimientos pueden estar autorizados a continuar las ventas de alcohol <strong>hasta las 4:00 a.m.</strong> si el gobierno local ha adoptado las regulaciones correspondientes. Estos horarios extendidos generalmente aplican solo a los establecimientos que cumplen con ciertos requisitos de licencia.</p>
+      </div>
+
+      <h3>Obtención de Permisos para Horarios Extendidos</h3>
+      <p>Los titulares de licencias que deseen operar bajo horarios extendidos generalmente deben obtener una <strong>autorización específica</strong>. Esto puede implicar presentar una solicitud, pagar tarifas de licencia adicionales y demostrar el cumplimiento de las regulaciones locales.</p>
+      <p>Las autoridades locales revisan estas solicitudes y determinan si los horarios extendidos son apropiados para la comunidad.</p>
+      <p>Dado que los horarios extendidos pueden implicar responsabilidades adicionales de seguridad y supervisión, los establecimientos deben garantizar que los miembros del personal comprendan las reglas aplicables.</p>
+
+      <h3>Permisos para Eventos Especiales</h3>
+      <p>En algunas situaciones, los horarios de servicio extendidos temporales pueden ser autorizados mediante <strong>permisos para eventos especiales</strong>. Estos permisos pueden aplicar a festivales, eventos privados u otras ocasiones donde el servicio de alcohol está aprobado por un tiempo limitado más allá de los horarios habituales.</p>
+      <p>Haga clic en cada elemento que generalmente especifica un permiso especial:</p>
+
+      <div class="responsibility-card">
+        <div class="card-checkbox"></div>
+        <div class="card-content">La fecha del evento</div>
+      </div>
+
+      <div class="responsibility-card">
+        <div class="card-checkbox"></div>
+        <div class="card-content">Los horarios aprobados de servicio de alcohol</div>
+      </div>
+
+      <div class="responsibility-card">
+        <div class="card-checkbox"></div>
+        <div class="card-content">El lugar donde puede servirse el alcohol</div>
+      </div>
+
+      <p>Los empleados que trabajen en dichos eventos deben ser informados de las reglas específicas que aplican durante el período de tiempo autorizado.</p>
+
+      <h3>Áreas de Servicio al Aire Libre</h3>
+      <p>Las áreas de servicio al aire libre, como patios o asientos en azoteas, se consideran parte de las instalaciones con licencia. Los mismos horarios legales de servicio aplican independientemente de si el alcohol se sirve en interiores o exteriores.</p>
+
+      <div class="reflect-box">
+        <p>Los servidores que trabajan en áreas al aire libre deben seguir las mismas restricciones de horario que aplican dentro del establecimiento.</p>
+      </div>
+
+      <h3>Verificación de Ordenanzas Locales</h3>
+      <p>Dado que los horarios de servicio de alcohol pueden variar dependiendo de las ordenanzas locales, los titulares de licencias deben confirmar las reglas que aplican en su municipio.</p>
+      <p>La gerencia es responsable de comunicar estas reglas a los empleados para que las prácticas de servicio permanezcan consistentes con las regulaciones locales.</p>
+
+      <p>Haga clic en cada tema de horarios extendidos a continuación para revisarlo:</p>
+
+      <div class="timeline-step" id="ext-1">
+        <div class="timeline-step-header" onclick="toggleStep('ext-1')">
+          <div class="step-number">1</div>
+          Autoridad Local para Extender los Horarios
+          <span class="step-arrow">▼</span>
+        </div>
+        <div class="timeline-step-body">
+          <p>La ley de Michigan permite a las <strong>unidades locales de gobierno</strong>, como ciudades o municipios, autorizar horarios extendidos de venta de alcohol mediante ordenanzas locales. En algunos municipios, los establecimientos pueden estar autorizados a continuar las ventas de alcohol <strong>hasta las 4:00 a.m.</strong> si el gobierno local ha adoptado las regulaciones correspondientes. Estos horarios extendidos generalmente aplican solo a los establecimientos que cumplen con ciertos requisitos de licencia.</p>
+        </div>
+      </div>
+
+      <div class="timeline-step" id="ext-2">
+        <div class="timeline-step-header" onclick="toggleStep('ext-2')">
+          <div class="step-number">2</div>
+          Obtención de Permisos para Horarios Extendidos
+          <span class="step-arrow">▼</span>
+        </div>
+        <div class="timeline-step-body">
+          <p>Los titulares de licencias que deseen operar bajo horarios extendidos generalmente deben obtener una <strong>autorización específica</strong>. Esto puede implicar presentar una solicitud, pagar tarifas de licencia adicionales y demostrar el cumplimiento de las regulaciones locales.</p>
+          <p>Las autoridades locales revisan estas solicitudes y determinan si los horarios extendidos son apropiados para la comunidad.</p>
+          <p>Dado que los horarios extendidos pueden implicar responsabilidades adicionales de seguridad y supervisión, los establecimientos deben garantizar que los miembros del personal comprendan las reglas aplicables.</p>
+        </div>
+      </div>
+
+      <div class="timeline-step" id="ext-3">
+        <div class="timeline-step-header" onclick="toggleStep('ext-3')">
+          <div class="step-number">3</div>
+          Permisos para Eventos Especiales
+          <span class="step-arrow">▼</span>
+        </div>
+        <div class="timeline-step-body">
+          <p>En algunas situaciones, los horarios de servicio extendidos temporales pueden ser autorizados mediante <strong>permisos para eventos especiales</strong>. Estos permisos pueden aplicar a festivales, eventos privados u otras ocasiones donde el servicio de alcohol está aprobado por un tiempo limitado más allá de los horarios habituales.</p>
+          <p>Los permisos especiales generalmente especifican:</p>
+          <ul>
+            <li>La fecha del evento</li>
+            <li>Los horarios aprobados de servicio de alcohol</li>
+            <li>El lugar donde puede servirse el alcohol</li>
+          </ul>
+          <p>Los empleados que trabajen en dichos eventos deben ser informados de las reglas específicas que aplican durante el período de tiempo autorizado.</p>
+        </div>
+      </div>
+
+      <div class="timeline-step" id="ext-4">
+        <div class="timeline-step-header" onclick="toggleStep('ext-4')">
+          <div class="step-number">4</div>
+          Áreas de Servicio al Aire Libre
+          <span class="step-arrow">▼</span>
+        </div>
+        <div class="timeline-step-body">
+          <p>Las áreas de servicio al aire libre, como patios o asientos en azoteas, se consideran parte de las instalaciones con licencia. Los mismos horarios legales de servicio aplican independientemente de si el alcohol se sirve en interiores o exteriores.</p>
+          <p>Los servidores que trabajan en áreas al aire libre deben seguir las mismas restricciones de horario que aplican dentro del establecimiento.</p>
+        </div>
+      </div>
+
+      <div class="timeline-step" id="ext-5">
+        <div class="timeline-step-header" onclick="toggleStep('ext-5')">
+          <div class="step-number">5</div>
+          Verificación de Ordenanzas Locales
+          <span class="step-arrow">▼</span>
+        </div>
+        <div class="timeline-step-body">
+          <p>Dado que los horarios de servicio de alcohol pueden variar dependiendo de las ordenanzas locales, los titulares de licencias deben confirmar las reglas que aplican en su municipio.</p>
+          <p>La gerencia es responsable de comunicar estas reglas a los empleados para que las prácticas de servicio permanezcan consistentes con las regulaciones locales.</p>
+        </div>
+      </div>
+
+      <!-- Verificación de Conocimiento -->
+      <div class="knowledge-check">
+        <h4>Verificación de Conocimiento: Horarios Extendidos y Opciones Locales</h4>
+        <p style="color:#3730a3;margin-bottom:12px;">Bajo la ley de Michigan, ¿cuál de las siguientes afirmaciones sobre los horarios extendidos de venta de alcohol es correcta?</p>
+        <ul class="kc-options">
+          <li><button class="kc-option" onclick="checkAnswer(this, false, 'kc-feedback-2')">Todos los establecimientos de Michigan tienen permiso automático para servir alcohol hasta las 4:00 a.m.</button></li>
+          <li><button class="kc-option" onclick="checkAnswer(this, false, 'kc-feedback-2')">Los patios al aire libre están exentos de las restricciones de horario estándar de servicio</button></li>
+          <li><button class="kc-option" onclick="checkAnswer(this, true, 'kc-feedback-2')">Las unidades locales de gobierno pueden autorizar horarios extendidos mediante ordenanzas locales, pero se requiere una autorización específica</button></li>
+          <li><button class="kc-option" onclick="checkAnswer(this, false, 'kc-feedback-2')">Los horarios extendidos solo se permiten durante días festivos aprobados por el estado</button></li>
+        </ul>
+        <div class="kc-feedback" id="kc-feedback-2"></div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<script>
+// Accordion / timeline step toggle
+function toggleStep(id) {
+  var el = document.getElementById(id);
+  el.classList.toggle('open');
+}
+
+// Knowledge check answer handler
+function checkAnswer(btn, isCorrect, feedbackId) {
+  var kc = btn.closest('.knowledge-check');
+  kc.querySelectorAll('.kc-option').forEach(function(b){ b.disabled = true; });
+  btn.classList.add(isCorrect ? 'correct' : 'incorrect');
+  var feedback = document.getElementById(feedbackId);
+  feedback.classList.add('show');
+  if(isCorrect){
+    feedback.classList.add('correct');
+    feedback.classList.remove('incorrect');
+    if(feedbackId === 'kc-feedback-1'){
+      feedback.textContent = '✓ ¡Correcto! La hora límite legal estándar de Michigan para las ventas de alcohol es las 2:00 a.m. Esto aplica tanto a los titulares de licencia para consumo en el lugar, como bares y restaurantes, como a los titulares de licencia para consumo fuera del lugar, como tiendas de licores al por menor y supermercados.';
+    } else if(feedbackId === 'kc-feedback-2'){
+      feedback.textContent = '✓ ¡Correcto! Los horarios extendidos no son automáticos. Las unidades locales de gobierno pueden autorizarlos mediante ordenanzas locales, y los titulares de licencias generalmente deben obtener una autorización específica — incluyendo presentar una solicitud y demostrar el cumplimiento de las regulaciones locales.';
+    }
+  } else {
+    feedback.classList.add('incorrect');
+    feedback.classList.remove('correct');
+    if(feedbackId === 'kc-feedback-1'){
+      feedback.textContent = '✗ No es correcto. La hora límite legal estándar de Michigan para las ventas de alcohol es las 2:00 a.m. — no la medianoche, la 1:00 a.m. ni las 3:00 a.m. Este estándar aplica en todo el estado a menos que una ordenanza local autorice horarios extendidos.';
+    } else if(feedbackId === 'kc-feedback-2'){
+      feedback.textContent = '✗ No es correcto. Los horarios extendidos no son automáticos para todos los establecimientos, las áreas al aire libre no están exentas de las reglas de horario de servicio, y los horarios extendidos no se limitan a los días festivos aprobados por el estado. Los gobiernos locales pueden autorizar horarios extendidos mediante ordenanzas, pero debe obtenerse una autorización específica.';
+    }
+  }
+}
+
+// Interactive card toggle functionality
+document.querySelectorAll('.responsibility-card').forEach(function(card){
+  card.addEventListener('click', function(){
+    this.classList.toggle('checked');
+  });
+});
+</script>
